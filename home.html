@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - MLRIT 📖</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="images/campusfav.jpg">
+    <style>
+
+    
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Scrolling text */
+        .scrolling-text {
+            background-color: rgb(41, 186, 235);
+            color: white;
+            padding: 10px 0;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        .scrolling-text span {
+            display: inline-block;
+            position: absolute;
+            animation: scrollText 10s linear infinite;
+        }
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        header img {
+            height: 80px;
+            margin-right: 20px;
+        }
+        .menu {
+            margin-left: auto;
+        }
+        .menu a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: rgb(27, 27, 26);
+            font-weight: bold;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        /* Logo background */
+        .background-logo {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: calc(100vh - 120px);
+            position: relative;
+        }
+        .scroll-container {
+            display: flex;
+            justify-content: space-around;
+            overflow: hidden;
+            padding: 15px;
+            background: #ddd;
+        }
+        .scroll-box {
+            width: 25%;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .scroll-content {
+            position: absolute;
+            width: 100%;
+            animation: scrollUp 10s linear infinite;
+        }
+        @keyframes scrollUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        .image-gallery img {
+            width: 20%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .full-width-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+
+        }
+        .mac{
+            color: pink;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .quick-links {
+            display: flex;
+            justify-content: space-between;
+        }
+        .quick-links div {
+            width: 30%;
+        }
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+        ul {
+    list-style: none; /* Removes bullets */
+    padding: 0; /* Removes extra spacing */
+    margin: 0; /* Removes extra spacing */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Scrolling Text -->
+    <div class="scrolling-text">
+        <span>Come to Learn go to Serve</span>
+    </div>
+    <!-- Header Section -->
+
+
+    <script>
+        function toggleProfile() {
+            var dropdown = document.getElementById("profileDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        async function saveProfile() {
+            let formData = new FormData();
+            formData.append("name", document.getElementById("userName").value);
+            formData.append("roll", document.getElementById("userRoll").value);
+            formData.append("class", document.getElementById("userClass").value);
+            formData.append("year", document.getElementById("userYear").value);
+            formData.append("profilePic", document.getElementById("userProfilePic").files[0]);
+
+            await fetch("http://localhost:5000/saveProfile", {
+                method: "POST",
+                body: formData,
+                credentials: "include"
+            });
+            document.getElementById("saveMessage").style.display = "block";
+            fetchProfile();
+        }
+
+        async function fetchProfile() {
+            const res = await fetch("http://localhost:5000/user", { credentials: "include" });
+            if (res.ok) {
+                const user = await res.json();
+                document.getElementById("userName").value = user.name || "";
+                document.getElementById("userRoll").value = user.roll || "";
+                document.getElementById("userClass").value = user.class || "";
+                document.getElementById("userYear").value = user.year || "";
+                document.getElementById("profilePic").src = user.profilePic || "images/default-avatar.png";
+            }
+        }
+
+        function logout() {
+            fetch("http://localhost:5000/logout", { method: "POST", credentials: "include" })
+                .then(() => {
+                    alert("Successfully logged out - Campus Connect, Thanks");
+                    window.location.href = "login.html";
+                });
+        }
+
+        fetchProfile();
+    </script>
+</body>
+</html>
+    <!-- Header Section -->
+<header>
+
+
+    <a href="home.html">
+        <img src="images/campus.jpg" alt="College Logo">
+    </a>
+    <nav class="menu">
+        <a href="home.html">Home</a>
+        <a href="add.html">Academics</a>
+        <a href="cc.html">CC Ai</a>
+        <a href="demo.html">Resource Hub</a>
+        <a href="opp.html">Opportunity</a>
+        <a href="event.html">Events</a>
+    
+        <a href="about.html">About Us</a>
+    </nav>
+</header>
+
+    <!-- Background Section -->
+    <div class="background-logo" style="background-image: url('images/mlrit.jpg');">
+    </div>
+    <!-- Scrolling Boxes -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .scroll-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Makes it responsive */
+            gap: 20px;
+            margin: 20px;
+        }
+        .scroll-box {
+            background-color: white;
+            width: 70%; /* Responsive width */
+            max-width: 350px; /* Limits max width */
+            height: 220px; /* Increased height */
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+        .scroll-content {
+            position: absolute;
+            width: 100%;
+            animation: scrollUp 12s linear infinite;
+        }
+        ul {
+            list-style: none; /* Removes bullets */
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s ease; /* Smooth hover effect */
+        }
+        li:hover {
+            color: #007bff; /* Blue on hover */
+            transform: scale(1.1);
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 5px 0;
+        }
+        @keyframes scrollUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+        @media (max-width: 768px) {
+            .scroll-box {
+                height: 250px; /* Adjust height for small screens */
+            }
+            li {
+                font-size: 1rem; /* Adjust font size */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scrolling Boxes -->
+    <div class="scroll-container">
+        <div class="scroll-box">
+            <div class="scroll-content">
+                <ul>
+                    <li><i>Courses Offered</i></li>
+                    <br>
+                    <li>Artificial Intelligence</li>
+                    <hr/>
+                    <li>Data Science</li>
+                    <hr/>
+                    <li>Cybersecurity</li>
+                    <hr/>
+                    <li>Computer Science</li>
+                    <hr/>
+                    <li>Information Technology</li>
+                    <hr/>
+                    <li>Electronics Communication Engineering</li>
+
+                    <hr/>
+                    <li>Computer science & info tech</li>
+                    <hr/>
+                    <li>Mechanical Engineering</li>
+                    <hr/>
+
+                    <li>Civil Engineering</li>
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="scroll-box">
+            <div class="scroll-content">
+                <ul> <hr/>
+
+                    <li><i>Announcements</i></li>
+                    <br/>
+
+                    <li>Upcoming Tech Events</li>
+                    <hr/>
+                    <li>Workshop on AI & ML</li>
+                    <hr/>
+                    <li>Cybersecurity Awareness</li>
+                    <hr/>
+                    <li>Hackathon Registration Open</li>
+                    <hr/>
+                    <li>Guest Lecture: Cloud Computing</li>
+                    <hr/>
+                </ul>
+            </div>
+        </div>
+        <div class="scroll-box">
+            <div class="scroll-content">
+                <ul>
+                    <li>Examination Timetable Released</li>
+                    <hr/>
+                    <li>Library Hours Extended</li>
+                    <hr/>
+                    <li>Internship Opportunities</li>
+                    <hr/>
+                    <li>Placement Training Schedule</li>
+                    <hr/>
+                    <li>New Clubs Enrollment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+        <img src="images/c1.jpg" alt="Image 1">
+        <img src="images/c2.jpg" alt="Image 2">
+        <img src="images/c3.jpg" alt="Image 3">
+        <img src="images/c4.jpg" alt="Image 4">
+
+    </div>
+    <!-- Full Width Image -->
+    <img src="images/widthbanner.png" alt="Full Width Image" class="full-width-image">
+    <!-- Footer Section -->
+   <!-- Footer Section -->
+<footer>
+    <!-- Social Media Links -->
+     <!-- WhatsApp Chat Toggle -->
+<div class="whatsapp-container">
+    <button class="whatsapp-button" onclick="toggleChat()">
+        <img src="images/whatsapp_5968841.png" alt="WhatsApp" width="40">
+    </button>
+    <div class="whatsapp-chat" id="whatsappChat">
+        <p>Chat with us on WhatsApp:</p>
+        <a href="https://wa.me/9398633217" target="_blank">Start Chat</a>
+    </div>
+</div>
+
+<style>
+    .whatsapp-container {
+        position: fixed;
+        bottom: 40px;
+        right: 10px;
+    }
+    .whatsapp-button {
+        background-color: #25D366;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .whatsapp-button img {
+        width: 30px;
+        height: 30px;
+    }
+    .whatsapp-chat {
+        display: none;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 320px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+    .whatsapp-chat p {
+        margin: 0 0 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .whatsapp-chat a {
+        display: block;
+        background-color: #25D366;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+
+
+
+
+
+<script>
+    function toggleChat() {
+        var chatBox = document.getElementById("whatsappChat");
+        chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+
+
+<script>
+    async function checkAuth() {
+        const res = await fetch("http://localhost:5000/protected", {
+            credentials: "include", // Ensures cookies are sent with the request
+        });
+
+        if (!res.ok) {
+            window.location.href = "login.html"; // Redirect to login if unauthorized
+        }
+    }
+
+    checkAuth();
+</script>
+
+
+    <div class="footer-social-links">
+        <ul>
+            <a href="https://www.instagram.com/mlr_institute_of_technology/" target="_blank" title="Instagram"><img src="images/instagram_4138124.png" alt="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/Mlrit" target="_blank" title="Facebook"><img src="images/facebook_5968764.png" alt="Facebook">Facebook</a>
+            <a href="mailto:campussconnecttt@gmail.com" target="_blank" title="Email"><img src="images/email_3694362.png" alt="Email">Email</a>
+            <a href="https://www.youtube.com/@MLRInstituteofTechnology" target="_blank" title="YouTube"><img src="images/youtube_2111748.png" alt="YouTube">YouTube</a>
+        </ul>
+    </div>
+
+    <div class="footer-content">
+        <div>
+            <h4>Address</h4>
+            <p>Official Address:
+                Dundigal V, Survey No. 444, Dundigal, Gandi maisama,
+                Medchal Malkajgiri, Telangana – 500 043, Telangana
+                
+                +91 96522 26061,  info <b>@mlrinstitutions.ac.in</b></p>
+            <iframe src="https://maps.google.com/maps?q=mlrit&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+    </div>
+    <div class="quick-links">
+        <div>
+            <h4>Quick Links</h4>
+            
+                <a href="https://mlrit.ac.in/admissions/">Admissions</a>
+                <a href="https://mlrit.ac.in/computer-science-engineering/">Courses</a>
+                <a href="https://exams.mlrinstitutions.ac.in/">Exams</a>
+            
+        </div>
+        <div>
+            <h4>Student Resources</h4>
+            
+                <a href="https://mlrit.ac.in/campus-life/library/">Library</a>
+                <a href="https://mlrit.ac.in/event/">Clubs</a>
+                <a href="https://lms.mlrit.ac.in/">Counseling - LMS</a>
+            
+        </div>
+    </div>
+    <p>&copy;  All Rights Reserved for CampusConnet@mlrit 2025.</p>
+</footer>
+
+<button id="logoutBtn">Logout</button>
+<script src="home.js"></script>
+
+    
+
+
+
+</body>
+</html>

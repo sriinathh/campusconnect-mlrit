@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="images/campusfav.jpg">
+    <link rel="stylesheet" href="styles1.css">
+
+    <header>
+
+
+        <a href="home.html">
+            <img src="images/campus.jpg" alt="College Logo">
+        </a>
+        <nav class="menu">
+            <a href="home.html">Home</a>
+            <a href="add.html">Academics</a>
+            <a href="#aboutus">CC Ai</a>
+            <a href="demo.html">Resource Hub</a>
+            <a href="opp.html">Opportunity</a>
+            <a href="event.html">Events</a>
+        
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+    
+    
+    <!--<nav class="menu">
+        <a href="welcome.html" class="menu-item">Home</a>
+        <a href="#academics" class="menu-item">Academics</a>
+        <a href="#aboutus" class="menu-item">CC Ai</a>
+       
+        <a href="demo.html" class="menu-item">Resource Hub</a>
+        <a href="learn.html" class="menu-item">Library</a>
+        <a href="opp.html" class="menu-item">Opportunity</a>
+        <a href="event.html" class="menu-item">Events</a>
+        <a href="#aboutus" class="menu-item">About Us</a>
+    </nav>-->
+    
+   
+</head>
+<body>
+    <style>
+        header {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                background: #f4f4f4;
+            }
+            header img {
+                height: 80px;
+                margin-right: 20px;
+            }
+           
+            .menu a {
+                margin: 0 15px;
+                text-decoration: none;
+                color: rgb(27, 27, 26);
+                font-weight: bold;
+            }
+            .menu a:hover {
+                text-decoration: underline;
+            }
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background: #3498db;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    
+        .menu-item {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: #2980b9;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+    
+        .menu-item:hover {
+            background: #1f6692;
+            transform: scale(1.05);
+        }
+        .menu-item:hover {
+            background: #1f6692;
+            transform: scale(1.05);
+        }
+        </style>
+    <div class="container">
+        <h1>📅 Events Management</h1>
+
+        <!-- Add Event Form -->
+        <div class="add-event">
+            <h2>Add an Event</h2>
+            <form id="event-form">
+                <input type="text" id="title" placeholder="Event Title" required>
+                <textarea id="description" placeholder="Event Description" required></textarea>
+                <select id="category">
+                    <option value="birthday">Birthday</option>
+                    <option value="news">News</option>
+                    <option value="announcements">Updates</option>
+                    <option value="updates">Events</option>
+                    <option value="hackathon">Hackathon</option>
+                    <option value="promotion">Promotion</option>
+                </select>
+                <input type="date" id="date" required>
+                <input type="file" id="image" accept="image/*" required>
+                <button type="submit">Add Event</button>
+            </form>
+        </div>
+
+        <!-- Display Events -->
+        <div class="section" id="events">
+            <h2>🎉 Upcoming Events</h2>
+            <div class="events-container" id="event-list"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            await loadEvents();
+        });
+
+        // Load Events
+        async function loadEvents() {
+            const response = await fetch("http://localhost:5000/events");
+            const events = await response.json();
+            const eventList = document.getElementById("event-list");
+            eventList.innerHTML = "";
+
+            events.forEach(event => {
+                eventList.innerHTML += `
+                    <div class="event-card" id="event-${event._id}">
+                        <img src="http://localhost:5000${event.imageUrl}" class="event-image">
+                        <h3>${event.title}</h3>
+                        <p>${event.description}</p>
+                        <p><strong>Category:</strong> ${event.category}</p>
+                        <p><strong>Date:</strong> ${new Date(event.date).toDateString()}</p>
+                        <button onclick="deleteEvent('${event._id}')">Delete</button>
+                    </div>
+                `;
+            });
+        }
+
+        // Handle Event Submission
+        document.getElementById("event-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append("title", document.getElementById("title").value);
+            formData.append("description", document.getElementById("description").value);
+            formData.append("category", document.getElementById("category").value);
+            formData.append("date", document.getElementById("date").value);
+            formData.append("image", document.getElementById("image").files[0]);
+
+            await fetch("http://localhost:5000/add-event", { method: "POST", body: formData });
+            alert("Event Added!");
+            document.getElementById("event-form").reset();
+            loadEvents();
+        });
+
+        // Handle Event Deletion
+        async function deleteEvent(eventId) {
+            if (confirm("Are you sure you want to delete this event?")) {
+                await fetch(`http://localhost:5000/delete-event/${eventId}`, { method: "DELETE" });
+                document.getElementById(`event-${eventId}`).remove();
+            }
+        }
+    </script>
+</body>
+</html>

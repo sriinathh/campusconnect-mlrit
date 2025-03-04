@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESOURCE-HUB</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f5f7fa; }
+        .notes-container { display: flex; justify-content: center; gap: 15px; padding: 15px; flex-wrap: wrap; }
+        .product-card { background-color: white; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); width: 200px; border-radius: 10px; padding: 15px; text-align: center; position: relative; }
+        .product-image { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+        .product-title { font-size: 16px; font-weight: bold; color: #34495e; margin-top: 8px; }
+        .product-description { font-size: 12px; color: #4b5455; margin: 8px 0; }
+        .btn-download { display: block; width: 100%; background-color: #3498db; border: none; color: white; padding: 10px 0; font-weight: bold; cursor: pointer; border-radius: 5px; text-decoration: none; position: relative; }
+        .download-menu { display: none; position: absolute; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 5px; text-align: left; width: 100%; left: 0; padding: 5px 0; z-index: 10; }
+        .download-menu a { display: block; padding: 8px 12px; text-decoration: none; color: #3498db; font-size: 14px; }
+        .download-menu a:hover { background: #f0f0f0; }
+        .product-card:hover .download-menu { display: block; }
+        .pagination { margin-top: 20px; }
+        .pagination a { text-decoration: none; color: white; background: #3498db; padding: 8px 12px; margin: 5px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>RESOURCE-HUB</h1>
+    <h1><i>Fourth Year</i> </h1>
+    <h2><b><i>SEMESTER 1</i></b></h2>
+    <div class="notes-container">
+        <script>
+            const semester1 = [
+                { name: "	DISTRIBUTED COMPUTING", image: "/images/r/41dc.png" },
+                { name: "CRYPTOGRAPHY AND NETWORK SECURITY", image: "/images/r/41NS.png" },
+                { name: "	Professional Elective - IV", image: "/images/r/pe.png" },
+                { name: "	Professional Elective - V", image:  "/images/r/pe.png" },
+                { name: "Research Project Phase-1", image:  "/images/r/41Rep.png" }
+            ];
+            semester1.forEach(subject => {
+                document.write(`
+                    <div class="product-card">
+                        <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
+                        <div class="product-title">${subject.name}</div>
+                        <p class="product-description">BTech 1st Year 1st Sem</p>
+                        <button class="btn-download">Download Notes</button>
+                        <div class="download-menu">
+                            <a href="${subject.name.toUpperCase()}_UNIT_1_LINK" download>Unit 1</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_2_LINK" download>Unit 2</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_3_LINK" download>Unit 3</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_4_LINK" download>Unit 4</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_5_LINK" download>Unit 5</a>
+                        </div>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <hr/>
+    
+    
+    <h2><b><i>SEMESTER 2</i></b></h2>
+    <div class="notes-container">
+        <script>
+            const semester2 = [
+                { name: "	Professional Elective - VI", image: "/images/r/pe.png" },
+                { name: "	Open Elective III", image: "/images/r/oe.png" },
+                { name: 	"Industry Specific Training/ Internship / Technical Paper", image: "/images/r/42is.png" },
+                { name: "	ORGANIZATIONAL BEHAVIOUR", image: "/images/r/42ob.png" },
+                { name: "	Major Project Phase – 2", image: "/images/r/42mp.png" }
+            ];
+            semester2.forEach(subject => {
+                document.write(`
+                    <div class="product-card">
+                        <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
+                        <div class="product-title">${subject.name}</div>
+                        <p class="product-description">BTech 1st Year 2nd Sem</p>
+                        <button class="btn-download">Download Notes</button>
+                        <div class="download-menu">
+                            <a href="${subject.name.toUpperCase()}_UNIT_1_LINK" download>Unit 1</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_2_LINK" download>Unit 2</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_3_LINK" download>Unit 3</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_4_LINK" download>Unit 4</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_5_LINK" download>Unit 5</a>
+                        </div>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <h1>Yearwise Notes</h1>
+    <h2 id="semester-title"></h2>
+    <div class="notes-container" id="notes-container"></div>
+    <div class="pagination">
+        <a href="page1.html">1</a>
+        <a href="page2.html">2</a>
+        <a href="page3.html">3</a>
+        <a href="page4.html">4</a>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESOURCE-HUB</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="images/campusfav.jpg">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f5f7fa; }
+        .notes-container { display: flex; justify-content: center; gap: 15px; padding: 15px; flex-wrap: wrap; }
+        .product-card { background-color: white; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); width: 200px; border-radius: 10px; padding: 15px; text-align: center; position: relative; }
+        .product-image { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+        .product-title { font-size: 16px; font-weight: bold; color: #34495e; margin-top: 8px; }
+        .product-description { font-size: 12px; color: #4b5455; margin: 8px 0; }
+        .btn-download { display: block; width: 100%; background-color: #3498db; border: none; color: white; padding: 10px 0; font-weight: bold; cursor: pointer; border-radius: 5px; text-decoration: none; position: relative; }
+        .download-menu { display: none; position: absolute; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 5px; text-align: left; width: 100%; left: 0; padding: 5px 0; z-index: 10; }
+        .download-menu a { display: block; padding: 8px 12px; text-decoration: none; color: #3498db; font-size: 14px; }
+        .download-menu a:hover { background: #f0f0f0; }
+        .product-card:hover .download-menu { display: block; }
+        .pagination { margin-top: 20px; }
+        .pagination a { text-decoration: none; color: white; background: #3498db; padding: 8px 12px; margin: 5px; border-radius: 5px; }
+    </style>
+ 
+  
+</a>
+
+<header>
+
+
+    <a href="home.html">
+        <img src="images/campus.jpg" alt="College Logo">
+    </a>
+    <nav class="menu">
+        <a href="home.html">Home</a>
+        <a href="add.html">Academics</a>
+        <a href="#aboutus">CC Ai</a>
+        <a href="demo.html">Resource Hub</a>
+        <a href="opp.html">Opportunity</a>
+        <a href="event.html">Events</a>
+    
+        <a href="about.html">About Us</a>
+        
+        <a href="learn.html"  class="placement-drive-btn">E - Learning</a>
+    </nav>
+</header>
+<header>
+    <nav>
+    </nav>
+</header>
+
+<!--<nav class="menu">
+    <a href="welcome.html" class="menu-item">Home</a>
+    <a href="#academics" class="menu-item">Academics</a>
+    <a href="#aboutus" class="menu-item">CC Ai</a>
+   
+    <a href="demo.html" class="menu-item">Resource Hub</a>
+    <a href="learn.html" class="menu-item">Library</a>
+    <a href="opp.html" class="menu-item">Opportunity</a>
+    <a href="event.html" class="menu-item">Events</a>
+    <a href="#aboutus" class="menu-item">About Us</a>
+</nav>-->
+
+<style>
+     .placement-drive-btn {
+    display: inline-block;
+    background-color: #6af35b;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 8px;
+   
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.placement-drive-btn:hover {
+    background-color: #f347b1;
+    transform: scale(1.05);
+}
+
+    header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f4f4f4;
+        }
+        header img {
+            height: 80px;
+            margin-right: 20px;
+        }
+       
+        .menu a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: rgb(27, 27, 26);
+            font-weight: bold;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+    .menu {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        background: #3498db;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .menu-item {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 15px;
+        background: #2980b9;
+        border-radius: 5px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .menu-item:hover {
+        background: #1f6692;
+        transform: scale(1.05);
+    }
+</style>
+
+    
+    
+</head>
+<body>
+    <h1>RESOURCE-HUB</h1>
+    <h1><i>First Year</i> </h1>
+    <h2><b><i>SEMESTER 1</i></b></h2>
+    <div class="notes-container">
+        <script>
+            const semester1 = [
+                { name: "LINEAR ALGEBRA AND CALCULUS", image: "/images/r/1la.jpg" },
+                { name: "Programming For Problem Solving", image: "/images/r/1pc.jpg" },
+                { name: "ENGLISH-FOR-SKILL-ENHANCEMENT", image: "/images/r/1en.jpg" },
+                { name: "BASIC ELECTRICAL AND ELECTRONICS ENGINEERING", image: "/images/r/1ee.jpg" },
+                { name: "ELECTRONIC DEVICES AND APPLICATIONS", image: "/images/r/1ed.jpg" }
+            ];
+            semester1.forEach(subject => {
+                document.write(`
+                    <div class="product-card">
+                        <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
+                        <div class="product-title">${subject.name}</div>
+                        <p class="product-description">BTech 2nd Year 1st Sem</p>
+                        <button class="btn-download">Download Notes</button>
+                        <div class="download-menu">
+                            <a href="${subject.name.toUpperCase()}_UNIT_1_LINK" download>Unit 1</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_2_LINK" download>Unit 2</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_3_LINK" download>Unit 3</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_4_LINK" download>Unit 4</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_5_LINK" download>Unit 5</a>
+                        </div>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <br/>
+
+    <hr/>
+    
+    <h2><b><i>SEMESTER 2</i></b></h2>
+    <div class="notes-container">
+        <script>
+            const semester2 = [
+                { name: "Numerical Methods And Integral Transforms", image: "/images/r/11m.jpg" },
+                { name: "Applied Physics", image: "/images/r/11ap.jpg" },
+                { name: "Engineering Chemistry", image: "/images/r/11ec.jpg" },
+                { name: "Elements Of Computer Science And Engineering", image: "/images/r/11ecse.jpg" },
+                { name: "Environmental Science", image: "/images/r/11es.jpg" }
+            ];
+            semester2.forEach(subject => {
+                document.write(`
+                    <div class="product-card">
+                        <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
+                        <div class="product-title">${subject.name}</div>
+                        <p class="product-description">BTech 2nd Year 2nd Sem</p>
+                        <button class="btn-download">Download Notes</button>
+                        <div class="download-menu">
+                            <a href="${subject.name.toUpperCase()}_UNIT_1_LINK" download>Unit 1</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_2_LINK" download>Unit 2</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_3_LINK" download>Unit 3</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_4_LINK" download>Unit 4</a>
+                            <a href="${subject.name.toUpperCase()}_UNIT_5_LINK" download>Unit 5</a>
+                        </div>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <h1>Yearwise Notes</h1>
+    <h2 id="semester-title"></h2>
+    <div class="notes-container" id="notes-container"></div>
+    <div class="pagination">
+        <a href="page1.html">1</a>
+        <a href="page2.html">2</a>
+        <a href="page3.html">3</a>
+        <a href="page4.html">4</a>
+</body>
+</html>

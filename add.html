@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE Department - MLRIT</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="image/jpg" href="images/campusfav.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #004aad, #00b4db);
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            height: 60px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        .menu a:hover {
+            color: #ffeb3b;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .banner-img {
+            width: 100%;
+            height: auto;
+            animation: zoomIn 5s infinite alternate;
+        }
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        .hod-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hod-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .hod-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .hod-pic:hover {
+            transform: scale(1.1);
+        }
+        .scrolling-text {
+            font-weight: bold;
+            color: #d32f2f;
+            font-size: 1.2rem;
+            padding: 10px;
+            background: #ffeb3b;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+            background: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        section:hover {
+            transform: translateY(-5px);
+        }
+        footer {
+            background: #004aad;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="home.html">
+            <img src="images/mlrit1.jpg" alt="College Logo" class="logo">
+        </a>
+       
+        <nav class="menu">
+            <a href="home.html">Home</a>
+            <a href="#vision">Vision</a>
+            <a href="#mission">Mission</a>
+            <a href="#academics">Academics</a>
+            <a href="#downloads">Downloads</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#newsletter">Newsletter</a>
+            <a href="#magazine">Magazine</a>
+            <a href="#innovation">Innovation Club</a>
+            <a href="#sdc">Software Dev Cell</a>
+        </nav>
+    </header>
+    <section class="banner">
+        <img src="images/csebanner.png" alt="CSE Department Banner" class="banner-img">
+        <div class="banner-text">
+           
+        </div>
+        <h1>Welcome to the Department of Computer Science & Engineering</h1>
+           
+        <p>Empowering students with cutting-edge technology and innovative research for a brighter future.
+            The B.Tech program in Computer Science and Engineering was started in the year 2005 with an intake of 60, increased to 120 in 2007 , 180 in 2012, 240 in 2013 and 840 in 2024. Besides, an additional 10% seats are under lateral entry scheme. The department is also offering M.Tech program in Computer Science and Engineering from the year 2011, with an intake of 6. The B.Tech (Computer Science and Engineering) program accredited by the National Board of Accreditation (NBA) since 2008.
+        </p>
+    </section>
+    <section id="hod-profile" class="hod-section">
+        <h2>Head of the Department</h2>
+        <div class="hod-container">
+            <img src="images/csehod.jpg" alt="HOD Profile Picture" class="hod-pic">
+            <div class="hod-info">
+                <h3>Dr. [ A Balaram]</h3>
+                <p>Head of the Department, CSE</p>
+                <p>Dr. A Balaram has over 20 years of experience in teaching and research, guiding students toward excellence in computer science.</p>
+            </div>
+        </div>
+    </section>
+    <marquee class="scrolling-text">Latest Updates: Admissions Open for 2025 | Upcoming Technical Fest on March 15th | Placement Drive for Final Year Students</marquee>
+    <section id="vision"><h2>Vision</h2><p>To be a center of excellence in Computer Science & Engineering.</p></section>
+    <section id="mission"><h2>Mission</h2><p>Providing quality education, fostering innovation, and preparing students for industry.</p></section>
+    <section id="academics"><h2>Academics</h2><p>Comprehensive academic programs in CSE with hands-on learning experiences.</p></section>
+    <footer>
+        <p>&copy; 2025 MLRIT CSE Department. All rights reserved.</p>
+    </footer>
+</body>
+</html>
