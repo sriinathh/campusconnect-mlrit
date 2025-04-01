@@ -35,10 +35,10 @@
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/srinath0611/mlrit.git"
+    "url": "git+https://github.com/sriinathh/campusconnect-mlrit.git"
   },
   "bugs": {
-    "url": "https://github.com/srinath0611/mlrit/issues"
+    "url": "https://github.com/sriinathh/campusconnect-mlrit/issues"
   },
-  "homepage": "https://github.com/srinath0611/mlrit#readme"
+  "homepage": "https://github.com/sriinathh/campusconnect-mlrit#readme"
 }
