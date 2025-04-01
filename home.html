@@ -153,7 +153,7 @@
 <body>
     <!-- Scrolling Text -->
     <div class="scrolling-text">
-        <span>Come to Learn go to Serve</span>
+        <span>Innovate, Engineer, Excel – Shaping the Future, One Idea at a Time</span>
     </div>
     <!-- Header Section -->
 
@@ -215,8 +215,8 @@
     <nav class="menu">
         <a href="home.html">Home</a>
         <a href="add.html">Academics</a>
-        <a href="cc.html">CC Ai</a>
-        <a href="demo.html">Resource Hub</a>
+        <a href=" http://localhost:3000">CC Ai</a>
+        <a href="demo.html" class="resource-hub">Resource Hub</a>
         <a href="opp.html">Opportunity</a>
         <a href="event.html">Events</a>
     
@@ -235,6 +235,28 @@
             margin: 0;
             padding: 0;
         }
+        
+        /* Background Logo Animation */
+@keyframes zoomInOut {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.background-logo {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: calc(100vh - 120px);
+    position: relative;
+    animation: zoomInOut 10s infinite alternate ease-in-out, fadeSlide 1.5s ease-in-out;
+}
+
         .scroll-container {
             display: flex;
             justify-content: center;
