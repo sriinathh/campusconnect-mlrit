@@ -32,17 +32,19 @@
     <a href="home.html">
         <img src="images/campus.jpg" alt="College Logo">
     </a>
-    <nav class="menu">
-        <a href="home.html">Home</a>
-        <a href="add.html">Academics</a>
-        <a href="#aboutus">CC Ai</a>
-        <a href="demo.html">Resource Hub</a>
-        <a href="opp.html">Opportunity</a>
-        <a href="https://tools.brandseotools.com/"> SkillSphere </a>
-        <a href="event.html"> Events </a>
+    
     
   
-      
+        <nav class="menu">
+            <a href="home.html">Home</a>
+            <a href="add.html">Academics</a>
+            <a href="llamachatbot\index.html">CC Ai</a>
+            <a href="demo.html" class="resource-hub">Resource Hub</a>
+            <a href="https://tools.brandseotools.com/"> LearNova </a>
+            <a href="opp.html">Opportunity</a>
+            <a href="event.html">Events</a>
+        
+        </nav>
       
     </nav>
     
@@ -268,91 +270,52 @@
     
 </head>
 <body>
-    <h1>RESOURCE-HUB</h1>
-    <h1><i>First Year</i> </h1>
-    <h2><b><i>SEMESTER 1</i></b></h2>
-    <div class="notes-container">
-        <script>
-            const semester1 = [
-                { name: "LINEAR ALGEBRA AND CALCULUS", image: "/images/r/1la.jpg" },
-                { name: "Programming For Problem Solving", image: "/images/r/1pc.jpg" },
-                { name: "ENGLISH-FOR-SKILL-ENHANCEMENT", image: "/images/r/1en.jpg" },
-                { name: "BASIC ELECTRICAL AND ELECTRONICS ENGINEERING", image: "/images/r/1ee.jpg" },
-                { name: "ELECTRONIC DEVICES AND APPLICATIONS", image: "/images/r/1ed.jpg" }
-            ];
-            semester1.forEach(subject => {
-                document.write(`
-                    <div class="product-card">
-                        <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
-                        <div class="product-title">${subject.name}</div>
-                        <p class="product-description">BTech 2nd Year 1st Sem</p>
-                        <button class="btn-download">Download Notes</button>
-                        <div class="download-menu">
-                            <a href="${subject.name.toUpperCase()}_UNIT_1_LINK" download>Unit 1</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_2_LINK" download>Unit 2</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_3_LINK" download>Unit 3</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_4_LINK" download>Unit 4</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_5_LINK" download>Unit 5</a>
+   
+        <h1>RESOURCE-HUB</h1>
+        <h1><i>First Year</i> </h1>
+        <h2><b><i>SEMESTER 1</i></b></h2>
+        <div class="notes-container">
+            <script>
+                const semester1 = [
+                    { name: "LINEAR ALGEBRA AND CALCULUS", image: "/images/r/1la.jpg", link: "https://drive.google.com/drive/folders/1doYj79mUQlTxVQxGhp-HxBuB0x6ZynyA" },
+                    { name: "Programming For Problem Solving", image: "/images/r/1pc.jpg", link: "https://drive.google.com/drive/folders/1kY0TYON1UWdyMqNltzCBY-XZgwmADpoM" },
+                    { name: "ENGLISH-FOR-SKILL-ENHANCEMENT", image: "/images/r/1en.jpg", link: "https://drive.google.com/drive/folders/1OGPp_zt0ttLq-xeI8kPrdLeJFdf0twQL" },
+                    { name: "BASIC ELECTRICAL AND ELECTRONICS ENGINEERING", image: "/images/r/1ee.jpg", link: "https://drive.google.com/drive/folders/1zf-lioc3gUvwZqisDcZ8aDfRRePymQ-E" },
+                    { name: "ELECTRONIC DEVICES AND APPLICATIONS", image: "/images/r/1ed.jpg", link: "https://drive.google.com/file/d/your_link_5/view" }
+                ];
+                semester1.forEach(subject => {
+                    document.write(`
+                        <div class="product-card">
+                            <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
+                            <div class="product-title">${subject.name}</div>
+                            <a href="${subject.link}" target="_blank" class="btn-download">Download Notes</a>
                         </div>
-                    </div>
-                `);
-            });
-        </script>
-    </div>
-
-    <br/>
-
-    <hr/>
-    
-    <h2><b><i>SEMESTER 2</i></b></h2>
-    <div class="notes-container">
-        <script>
-            const semester2 = [
-                { name: "Numerical Methods And Integral Transforms", image: "/images/r/11m.jpg" },
-                { name: "Applied Physics", image: "/images/r/11ap.jpg" },
-                { name: "Engineering Chemistry", image: "/images/r/11ec.jpg" },
-                { name: "Elements Of Computer Science And Engineering", image: "/images/r/11ecse.jpg" },
-                { name: "Environmental Science", image: "/images/r/11es.jpg" }
-            ];
-            semester2.forEach(subject => {
-                document.write(`
-                    <div class="product-card">
-                        <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
-                        <div class="product-title">${subject.name}</div>
-                        <p class="product-description">BTech 2nd Year 2nd Sem</p>
-                        <button class="btn-download">Download Notes</button>
-                        <div class="download-menu">
-                            <a href="${subject.name.toUpperCase()}_UNIT_1_LINK" download>Unit 1</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_2_LINK" download>Unit 2</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_3_LINK" download>Unit 3</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_4_LINK" download>Unit 4</a>
-                            <a href="${subject.name.toUpperCase()}_UNIT_5_LINK" download>Unit 5</a>
+                    `);
+                });
+            </script>
+        </div>
+        <h1><i>First Year</i> </h1>
+        <h2><b><i>SEMESTER 2</i></b></h2>
+        <div class="notes-container">
+            <script>
+                const semester2 = [
+                    { name: "Numerical Methods And Integral Transforms", image: "/images/r/11m.jpg", link: "https://drive.google.com/drive/folders/1GPgxLKtF8Vi0dst7rml3VLbapVn2zy3v" },
+                    { name: "Applied Physics", image: "/images/r/11ap.jpg", link: "https://drive.google.com/drive/folders/17-8JfqRJAqqqrKy6zUlOwK9eGo7npwzZ" },
+                    { name: "Engineering Chemistry", image: "/images/r/11ec.jpg", link: "https://drive.google.com/drive/folders/1IasPw8dwJ8rvxCSDl9bZT9JtFZ-gcTVm" },
+                    { name: "Elements Of Computer Science And Engineering", image: "/images/r/11ecse.jpg", link: "https://drive.google.com/file/d/your_link_9/view" },
+                    { name: "Environmental Science", image: "/images/r/11es.jpg", link: "https://drive.google.com/file/d/your_link_10/view" }
+                ];
+                semester2.forEach(subject => {
+                    document.write(`
+                        <div class="product-card">
+                            <img src="${subject.image}" alt="${subject.name} Notes" class="product-image" />
+                            <div class="product-title">${subject.name}</div>
+                            <a href="${subject.link}" target="_blank" class="btn-download">Download Notes</a>
                         </div>
-                    </div>
-                `);
-            });
-            document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll(".btn-download").forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.stopPropagation(); // Prevents event bubbling
-            let menu = this.nextElementSibling;
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        });
-    });
-
-    // Close the download menu when clicking outside
-    document.addEventListener("click", function (event) {
-        document.querySelectorAll(".download-menu").forEach(menu => {
-            if (!menu.contains(event.target) && !menu.previousElementSibling.contains(event.target)) {
-                menu.style.display = "none";
-            }
-        });
-    });
-});
-
-
-        </script>
-    </div>
+                    `);
+                });
+            </script>
+        </div>
 
     <h1>Yearwise Notes</h1>
     <h2 id="semester-title"></h2>
