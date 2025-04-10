@@ -24,11 +24,12 @@ app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"));
 
 // MongoDB Connection
-mongoose.connect("mongodb://127.0.0.1:27017/campusconnect", {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log("✅ MongoDB connected"))
-  .catch(err => console.log("❌ MongoDB error:", err));
+})
+.then(() => console.log("✅ MongoDB Atlas connected"))
+.catch(err => console.error("❌ MongoDB connection error:", err));
 
 // ======================= USER AUTH ========================
 const userSchema = new mongoose.Schema({
